@@ -14,7 +14,7 @@ all: check coverage mutants
 		tests
 
 module = k9_analysis
-codecov_token = 6c56bccb-1758-4ed9-8161-97c845591c26
+codecov_token = 3cf638e1-8479-4433-ba4e-6af0edbc3f6e 
 
 define lint
 	pylint \
