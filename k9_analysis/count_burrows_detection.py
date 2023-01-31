@@ -11,4 +11,4 @@ def filter_dates(k9_data: pd.DataFrame, start_date: str, end_date: str) -> pd.Da
 
 
 def filter_k9(k9_name: str, k9_data: pd.DataFrame) -> pd.DataFrame:
-    pass
+    return k9_data.loc[k9_data.Nombre_k9 == k9_name]
