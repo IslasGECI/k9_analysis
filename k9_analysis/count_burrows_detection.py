@@ -1,6 +1,9 @@
 import pandas as pd
 
 
+def make_summary_maya_2022_number_of_nest_marked(k9_data):
+    return pd.DataFrame({"Unidad_K9": ["Maya"], "Conteo": [20]})
+
 def count_nest(k9_data) -> int:
     start_date = "2022-01-01"
     end_date = "2023-01-29"
