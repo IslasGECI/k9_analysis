@@ -10,5 +10,6 @@ description-file = "README.md"
 home-page = "https://github.com/IslasGECI/k9_analysis"
 module = "k9_analysis"
 requires = [
+		"pandas"
 ]
 requires-python=">=3.9"
