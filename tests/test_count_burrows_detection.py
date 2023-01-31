@@ -9,7 +9,7 @@ def test_make_summary_maya_2022_number_of_nest_marked():
     obtained_rows = len(obtained)
     expected_rows = 1
     assert obtained_rows == expected_rows
-    obtained_columns = len(obtained)
+    obtained_columns = len(obtained.columns)
     expected_columns = 2
     assert obtained_columns == expected_columns
 
