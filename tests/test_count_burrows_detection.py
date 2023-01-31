@@ -21,3 +21,6 @@ def test_filter_dates():
     expected_rows = 2
     obtained_rows = len(obtained)
     assert obtained_rows == expected_rows
+    obtained_dates = obtained.Fecha
+    expected_dates = ["2022-12-01", "2022-12-31"]
+    assert (obtained_dates == expected_dates).all()
