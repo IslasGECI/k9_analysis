@@ -1,13 +1,22 @@
-from k9_analysis import count_nest, filter_dates, filter_k9, filter_nest
+from k9_analysis import count_nest, filter_dates, filter_k9, filter_nest, make_summary_maya_2022_number_of_nest_marked
 import pandas as pd
 
 k9_data = pd.read_csv("tests/data/registros_rastros_de_gatos_k9_guadalupe_ISO8601.csv")
 
 
+def test_make_summary_maya_2022_number_of_nest_marked():
+    obtained = make_summary_maya_2022_number_of_nest_marked(k9_data)
+    obtained_rows = len(obtained)
+    expected_rows = 1
+    assert obtained_rows == expected_rows
+    obtained_columns = len(obtained)
+    expected_columns = 2
+    assert obtained_columns == expected_columns
+
 def test_count_nest():
     obtained = count_nest(k9_data)
     obtained_rows = len(obtained)
-    expected_rows = 22
+    expected_rows = 20
     assert obtained_rows == expected_rows
 
 
