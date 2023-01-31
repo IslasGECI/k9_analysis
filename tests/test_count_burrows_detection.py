@@ -1,4 +1,4 @@
-from k9_analysis import count_nest, filter_dates, filter_k9
+from k9_analysis import count_nest, filter_dates, filter_k9, filter_nest
 import pandas as pd
 
 k9_data = pd.read_csv("tests/data/registros_rastros_de_gatos_k9_guadalupe_ISO8601.csv")
@@ -6,9 +6,9 @@ k9_data = pd.read_csv("tests/data/registros_rastros_de_gatos_k9_guadalupe_ISO860
 
 def test_count_nest():
     obtained = count_nest(k9_data)
-    obtained_type = type(obtained)
-    expected_type = int
-    assert obtained_type == expected_type
+    obtained_rows = len(obtained)
+    expected_rows = 22
+    assert obtained_rows == expected_rows
 
 
 def test_filter_dates():
@@ -34,3 +34,14 @@ def test_filter_k9():
     expected_rows = 2
     obtained_rows = len(obtained)
     assert obtained_rows == expected_rows
+
+
+def test_filter_nest():
+    data = pd.DataFrame(
+        {
+            "Fecha": ["2022-12-01", "2022-12-31", "2023-01-31"],
+            "Nombre_k9": ["Maya", "Thor", "Maya"],
+            "Tipo_de_rastro": ["MD", "PL", "E1"],
+        }
+    )
+    filter_nest(data)
