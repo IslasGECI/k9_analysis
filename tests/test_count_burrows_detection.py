@@ -15,9 +15,9 @@ def test_filter_dates():
     data = pd.DataFrame(
         {"Fecha": ["2022-12-01", "2022-12-31", "2023-01-31"], "Nombre_k9": ["Maya", "Maya", "Maya"]}
     )
-    starting_date = "2022-12-01"
+    start_date = "2022-12-01"
     end_date = "2022-12-31"
-    obtained = filter_dates(data, starting_date, end_date)
+    obtained = filter_dates(data, start_date, end_date)
     expected_rows = 2
     obtained_rows = len(obtained)
     assert obtained_rows == expected_rows
