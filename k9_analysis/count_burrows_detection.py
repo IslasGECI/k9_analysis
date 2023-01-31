@@ -7,7 +7,7 @@ def count_nest(k9_data) -> int:
     k9_name = "Maya"
     only_maya = filter_k9(k9_name, k9_data)
     number_of_nest = filter_dates(only_maya, start_date, end_date)
-    return number_of_nest
+    return filter_nest(number_of_nest)
 
 
 def filter_dates(k9_data: pd.DataFrame, start_date: str, end_date: str) -> pd.DataFrame:
