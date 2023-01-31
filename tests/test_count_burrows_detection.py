@@ -31,3 +31,6 @@ def test_filter_k9():
         {"Fecha": ["2022-12-01", "2022-12-31", "2023-01-31"], "Nombre_k9": ["Maya", "Thor", "Maya"]}
     )
     obtained = filter_k9("Maya", data)
+    expected_rows = 2
+    obtained_rows = len(obtained)
+    assert obtained_rows == expected_rows
