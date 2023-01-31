@@ -1,4 +1,10 @@
-from k9_analysis import count_nest, filter_dates, filter_k9, filter_nest, make_summary_maya_2022_number_of_nest_marked
+from k9_analysis import (
+    count_nest,
+    filter_dates,
+    filter_k9,
+    filter_nest,
+    make_summary_maya_2022_number_of_nest_marked,
+)
 import pandas as pd
 
 k9_data = pd.read_csv("tests/data/registros_rastros_de_gatos_k9_guadalupe_ISO8601.csv")
@@ -6,12 +12,17 @@ k9_data = pd.read_csv("tests/data/registros_rastros_de_gatos_k9_guadalupe_ISO860
 
 def test_make_summary_maya_2022_number_of_nest_marked():
     obtained = make_summary_maya_2022_number_of_nest_marked(k9_data)
+    print(obtained)
     obtained_rows = len(obtained)
     expected_rows = 1
     assert obtained_rows == expected_rows
-    obtained_columns = len(obtained.columns)
-    expected_columns = 2
-    assert obtained_columns == expected_columns
+    obtained_columns = obtained.columns
+    obtained_number_columns = len(obtained_columns)
+    expected_number_columns = 2
+    assert obtained_number_columns == expected_number_columns, "Número de columnas"
+    expected_columns = ["Unidad_K9", "Conteo"]
+    assert (obtained_columns == expected_columns).all(), "Nombres de las columnas"
+
 
 def test_count_nest():
     obtained = count_nest(k9_data)
@@ -53,4 +64,7 @@ def test_filter_nest():
             "Tipo_de_rastro": ["MD", "PL", "E1"],
         }
     )
-    filter_nest(data)
+    obtained = filter_nest(data)
+    expected_rows = 1
+    obtained_rows = len(obtained)
+    assert obtained_rows == expected_rows

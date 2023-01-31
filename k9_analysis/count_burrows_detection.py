@@ -2,7 +2,13 @@ import pandas as pd
 
 
 def make_summary_maya_2022_number_of_nest_marked(k9_data):
-    return pd.DataFrame({"Unidad_K9": ["Maya"], "Conteo": [20]})
+    nest_marked_by_maya_in_2022 = count_nest(k9_data)
+    return (
+        nest_marked_by_maya_in_2022.groupby("Nombre_k9", as_index=False)
+        .agg(Conteo=("Tipo_de_rastro", "count"))
+        .rename(columns={"Nombre_k9": "Unidad_K9"})
+    )
+
 
 def count_nest(k9_data) -> int:
     start_date = "2022-01-01"
