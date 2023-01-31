@@ -10,8 +10,9 @@ def test_count_nest():
     expected_type = int
     assert obtained_type == expected_type
 
+
 def test_filter_dates():
     data = pd.DataFrame(
-        {"Fecha": ["2022-12-01", "2022-12-31", "2023-01-31"],
-        "Nombre_k9": ["Maya", "Maya", "Maya"]})
+        {"Fecha": ["2022-12-01", "2022-12-31", "2023-01-31"], "Nombre_k9": ["Maya", "Maya", "Maya"]}
+    )
     filter_dates(data)
