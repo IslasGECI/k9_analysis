@@ -11,7 +11,9 @@ k9_data = pd.read_csv("tests/data/registros_rastros_de_gatos_k9_guadalupe_ISO860
 
 
 def test_make_summary_maya_2022_number_of_nest_marked():
-    obtained = make_summary_maya_2022_number_of_nest_marked(k9_data)
+    start_date = "2022-01-01"
+    end_date = "2023-01-29"
+    obtained = make_summary_maya_2022_number_of_nest_marked(k9_data, start_date, end_date)
     print(obtained)
     obtained_rows = len(obtained)
     expected_rows = 1
@@ -25,7 +27,9 @@ def test_make_summary_maya_2022_number_of_nest_marked():
 
 
 def test_count_nest():
-    obtained = count_nest(k9_data)
+    start_date = "2022-01-01"
+    end_date = "2023-01-29"
+    obtained = count_nest(k9_data, start_date, end_date)
     obtained_rows = len(obtained)
     expected_rows = 20
     assert obtained_rows == expected_rows
