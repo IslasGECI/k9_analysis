@@ -1,6 +1,7 @@
-from k9_analysis import write_maya_nests_table
+from k9_analysis import app, write_maya_nests_table
 
 import os
+import typer
 
 
 def test_write_maya_nests_table():
