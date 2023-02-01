@@ -11,10 +11,7 @@ k9_data = pd.read_csv("tests/data/registros_rastros_de_gatos_k9_guadalupe_ISO860
 
 
 def test_make_summary_maya_2022_number_of_nest_marked():
-    start_date = "2022-01-01"
-    end_date = "2023-01-29"
-    obtained = make_summary_maya_2022_number_of_nest_marked(k9_data, start_date, end_date)
-    print(obtained)
+    obtained = make_summary_maya_2022_number_of_nest_marked(k9_data)
     obtained_rows = len(obtained)
     expected_rows = 1
     assert obtained_rows == expected_rows
@@ -24,7 +21,13 @@ def test_make_summary_maya_2022_number_of_nest_marked():
     assert obtained_number_columns == expected_number_columns, "Número de columnas"
     expected_columns = ["Unidad_K9", "Conteo"]
     assert (obtained_columns == expected_columns).all(), "Nombres de las columnas"
-
+    
+    start_date = "2021-01-01"
+    end_date = "2021-12-31"
+    obtained = make_summary_maya_2022_number_of_nest_marked(k9_data, start_date, end_date)
+    expected_nests = 7
+    obtained_nests = obtained.Conteo[0]
+    assert obtained_nests == expected_nests
 
 def test_count_nest():
     start_date = "2022-01-01"
