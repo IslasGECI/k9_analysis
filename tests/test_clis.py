@@ -25,3 +25,7 @@ def tests_app():
     assert result.exit_code == 0
     assert "Options" in result.output
     assert "--start-date" in result.output
+    assert "default: 2022-01-01" in result.output
+    assert "default: 2023-01-29" in result.output
+    assert "default: data/processed/" in result.output
+    assert "default: reports/tables/" in result.output
