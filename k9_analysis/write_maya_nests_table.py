@@ -8,7 +8,12 @@ app = typer.Typer()
 
 
 @app.command()
-def write_maya_nests_table(start_date, end_date, input_path, output_path):
+def write_maya_nests_table(
+    start_date: str = "2022-01-01",
+    end_date: str = "2023-01-29",
+    input_path: str = "data/processed/registros_rastros_de_gatos_k9_guadalupe_ISO8601.csv",
+    output_path: str = "reports/tables/maya_nests_table.csv",
+):
     k9_data = pd.read_csv(input_path)
     summary = make_summary_maya_2022_number_of_nest_marked(k9_data, start_date, end_date)
     summary.to_csv(output_path, index=False)

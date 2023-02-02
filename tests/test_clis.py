@@ -1,6 +1,9 @@
-from k9_analysis import write_maya_nests_table
+from k9_analysis import app, write_maya_nests_table
 
 import os
+from typer.testing import CliRunner
+
+runner = CliRunner()
 
 
 def test_write_maya_nests_table():
@@ -15,3 +18,10 @@ def test_write_maya_nests_table():
 def assert_path_exists(submission_path):
     assert os.path.exists(submission_path)
     os.remove(submission_path)
+
+
+def tests_app():
+    result = runner.invoke(app, ["--help"])
+    assert result.exit_code == 0
+    assert "Options" in result.output
+    assert "--start-date" in result.output
