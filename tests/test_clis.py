@@ -2,6 +2,7 @@ from k9_analysis import app, write_maya_nests_table, write_summary_of_marked_nes
 
 import os
 from typer.testing import CliRunner
+import pandas as pd
 
 runner = CliRunner()
 
@@ -12,6 +13,9 @@ def test_write_maya_nests_table():
     start_date = "2022-01-01"
     end_date = "2023-01-29"
     write_maya_nests_table(start_date, end_date, input_path, output_path)
+    obtained = pd.read_csv(output_path)
+    expected_columns = ["Unidad_K9", "Conteo"]
+    assert (obtained.columns == expected_columns).all()
     assert_path_exists(output_path)
 
 
@@ -19,6 +23,9 @@ def test_write_summary_of_marked_nests_by_year():
     input_path = "tests/data/registros_rastros_de_gatos_k9_guadalupe_ISO8601.csv"
     output_path = "tests/data/maya_nests_table.csv"
     write_summary_of_marked_nests_by_year(input_path, output_path)
+    obtained = pd.read_csv(output_path)
+    expected_columns = ["Unidad_K9", "Temporada", "Conteo"]
+    assert (obtained.columns == expected_columns).all()
     assert_path_exists(output_path)
 
 
