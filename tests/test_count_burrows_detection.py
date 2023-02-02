@@ -107,5 +107,3 @@ def tests_make_summary_of_marked_nests_by_year():
     obtained = make_summary_of_marked_nests_by_year(k9_df)
     expected_rows = 2
     assert len(obtained) == expected_rows
-    print(make_summary_of_marked_nests_by_year(k9_data))
-    assert False
