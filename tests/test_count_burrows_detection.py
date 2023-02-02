@@ -1,5 +1,6 @@
 from k9_analysis import (
-    count_nest,
+    extract_year,
+    filter_nest_traces_by_k9_and_interval,
     filter_dates,
     filter_k9,
     filter_nest,
@@ -31,10 +32,10 @@ def test_make_summary_maya_2022_number_of_nest_marked():
     assert obtained_nests == expected_nests
 
 
-def test_count_nest():
+def test_filter_nest_traces_by_k9_and_interval():
     start_date = "2022-01-01"
     end_date = "2023-01-29"
-    obtained = count_nest(k9_data, start_date, end_date)
+    obtained = filter_nest_traces_by_k9_and_interval(k9_data, start_date, end_date)
     obtained_rows = len(obtained)
     expected_rows = 20
     assert obtained_rows == expected_rows
@@ -77,3 +78,18 @@ def test_filter_nest():
     expected_rows = 1
     obtained_rows = len(obtained)
     assert obtained_rows == expected_rows
+
+
+def test_extract_year():
+    k9_df = pd.DataFrame(
+        {
+            "Fecha": ["2022-12-01", "2022-12-31", "2023-01-31"],
+            "Nombre_k9": ["Maya", "Thor", "Maya"],
+            "Tipo_de_rastro": ["MD", "PL", "E1"],
+        }
+    )
+    obtained = extract_year(k9_df)
+    expected_column = "Temporada"
+    assert expected_column in obtained.columns
+    expected_years = ["2022", "2022", "2023"]
+    assert (obtained.Temporada == expected_years).all()
