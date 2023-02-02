@@ -5,6 +5,7 @@ from k9_analysis import (
     filter_k9,
     filter_nest,
     make_summary_maya_2022_number_of_nest_marked,
+    make_summary_of_marked_nests_by_year,
 )
 import pandas as pd
 
@@ -93,3 +94,18 @@ def test_extract_year():
     assert expected_column in obtained.columns
     expected_years = ["2022", "2022", "2023"]
     assert (obtained.Temporada == expected_years).all()
+
+
+def tests_make_summary_of_marked_nests_by_year():
+    k9_df = pd.DataFrame(
+        {
+            "Fecha": ["2021-04-13", "2022-12-01", "2022-12-31", "2023-01-31", "2023-01-31"],
+            "Nombre_k9": ["Maya", "Maya", "Thor", "Maya", "Maya"],
+            "Tipo_de_rastro": ["E2", "MD", "PL", "MD", "MD"],
+        }
+    )
+    obtained = make_summary_of_marked_nests_by_year(k9_df)
+    expected_rows = 2
+    assert len(obtained) == expected_rows
+    print(make_summary_of_marked_nests_by_year(k9_data))
+    assert False

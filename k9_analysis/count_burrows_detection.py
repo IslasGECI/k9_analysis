@@ -37,3 +37,13 @@ def filter_nest(k9_data: pd.DataFrame) -> pd.DataFrame:
 def extract_year(k9_data: pd.DataFrame):
     k9_data["Temporada"] = k9_data.Fecha.transform(lambda x: x.split("-")[0])
     return k9_data
+
+
+def make_summary_of_marked_nests_by_year(k9_data: pd.DataFrame):
+    df_with_season = extract_year(k9_data)
+    df_with_nests = filter_nest(df_with_season)
+    return (
+        df_with_nests.groupby(["Nombre_k9", "Temporada"], as_index=False)
+        .agg(Conteo=("Tipo_de_rastro", "count"))
+        .rename(columns={"Nombre_k9": "Unidad_K9"})
+    )
