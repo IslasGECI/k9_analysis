@@ -2,7 +2,7 @@ import pandas as pd
 
 
 def make_summary_maya_2022_number_of_nest_marked(
-    k9_data, start_date="2022-01-01", end_date="2023-01-29"
+    k9_data, start_date="2022-01-01", end_date="2022-09-15"
 ):
     nest_marked_by_maya_in_2022 = count_nest(k9_data, start_date, end_date)
     return (

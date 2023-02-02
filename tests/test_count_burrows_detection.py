@@ -21,6 +21,7 @@ def test_make_summary_maya_2022_number_of_nest_marked():
     assert obtained_number_columns == expected_number_columns, "Número de columnas"
     expected_columns = ["Unidad_K9", "Conteo"]
     assert (obtained_columns == expected_columns).all(), "Nombres de las columnas"
+    assert obtained.Conteo[0] == 19
 
     start_date = "2021-01-01"
     end_date = "2021-12-31"
