@@ -5,7 +5,6 @@ class ReportingEffort:
     def __init__(self, data_paths):
         self.effort_k9 = None
         self.k9_path = data_paths["k9_effort_path"]
-        self.read_data()
 
     def read_data(self):
         self.effort_k9 = pd.read_csv(self.k9_path)

@@ -12,9 +12,11 @@ def test_init_ReportingEffort():
     obtained_class = obtained_report.__class__.__name__
     expected_class = "ReportingEffort"
     assert obtained_class == expected_class
+    assert obtained_report.effort_k9 is None
 
 
 def test_get_maya_effort_distance():
+    obtained_report.read_data()
     obtained_maya_calculate_total_time = obtained_report.get_maya_effort_distance()
     expected_total_time = 400
     assert obtained_maya_calculate_total_time == expected_total_time
