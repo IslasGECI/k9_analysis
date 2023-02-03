@@ -1,0 +1,34 @@
+Fecha,Manejador,Nombre_k9,Hora_inicio,Hora_fin,Duracion,Distancia,Sitio_o_lugar,Observaciones
+2019-10-01,NA,Diego,NA,NA,01:36:28,5.9,NA,NA
+2019-10-02,NA,Gitana,NA,NA,01:37:00,3.1,NA,NA
+2019-10-02,NA,Xhul,NA,NA,02:52:04,5.6,NA,NA
+2019-10-02,NA,Diego,NA,NA,01:52:03,5.9,NA,NA
+2020-01-18,Bolivar,Maya,NA,NA,00:51:43,2.3,Estacion bosque,NA
+2020-01-27,Bolivar,Maya,NA,NA,00:36:34,1.6,Arroyo Colinas Negras,NA
+2020-01-28,Bolivar,Maya,NA,NA,01:04:52,2.4,Melpo,NA
+2020-01-28,Bolivar,Maya,NA,NA,00:58:24,2.7,Palmas,NA
+2020-01-29,Bolivar,Maya,NA,NA,00:55:40,2.7,Palmas,NA
+2020-01-30,Bolivar,Maya,NA,NA,00:54:28,3.2,Columpios,NA
+2020-01-31,Bolivar,Maya,NA,NA,01:13:20,4,Colinas Negras,NA
+2020-08-26,Aldo,Gitana,06:31:09,10:04:37,03:33:28,8.7,Cipres 1,NA
+2020-09-12,Ana,Sin perro,06:26:00,12:50:00,06:24:00,6.5,Ana_palmas,NA
+2020-09-17,Ivan,Thor,06:26:00,08:59:00,02:33:00,7.4,Aguaje 1,NA
+2020-10-07,Ivan,Xhul,07:14:00,09:49:00,02:35:00,6.1,Zona 2,NA
+2020-10-08,Ivan,Xhul,07:07:00,10:48:00,03:41:00,12,Zona 1,NA
+2022-04-29,Ivan,Xhul,07:23:22,10:05:29,02:42:07,8.70,Camara 29 Este,NA
+2022-05-28,Ivan,Thor,06:45:41,08:46:45,02:01:04,9.1,Aguaje,NA
+2022-10-26,Aldo,Thor,06:56:38,09:20:53,02:24:15,11.3,camara 9,NA
+2022-10-31,Aldo,Xhul,00:44:34,01:59:21,01:14:47,7.9,Parche de bosque,NA
+2022-11-01,Aldo,Xhul,07:59:24,10:25:31,02:26:07,4.2,Aguaje,NA
+2022-11-07,Aldo,Thor,06:49:36,09:51:41,03:02:05,13.7,Aguaje,NA
+2022-11-07,Aldo,Xhul,06:49:05,09:51:30,04:15:31,13.4,Aguaje,NA
+2022-11-10,Aldo,Xhul,07:27:58,10:11:22,02:43:24,10,Norte,NA
+2022-11-12,Aldo,Thor,09:32:06,11:04:36,01:32:30,6.5,Parche sur,NA
+2022-11-14,Aldo,Xhul,07:16:53,10:30:46,03:13:53,9,Aguaje,NA
+2022-11-15,Aldo,Thor,07:00:22,10:43:22,03:12:22,5.2,Cantil oeste,NA
+2022-11-16,Aldo,Gitana,07:01:44,09:53:21,02:51:37,8.4,Cordillera,NA
+2022-11-18,Aldo,Thor,07:06:06,10:12:44,03:06:38,12.4,Aguaje,NA
+2022-11-19,Aldo,Xhul,07:13:14,10:09:59,02:56:45,12.1,Norte,NA
+2022-11-21,David,Gitana,07:36:54,10:16:54,02:40:00,7.9,Aguaje,NA
+2022-11-23,David,Gitana,07:22:09,09:50:59,02:28:50,7.9,Cantil oeste,NA
+2022-12-09,David,Gitana,07:55:49,11:16:09,03:20:20,10.4,Linea 162 y linea norte,NA
