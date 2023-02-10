@@ -52,4 +52,3 @@ def tests_make_summary_of_effort_and_distance():
     expected_thor_total_time = 2.435
     obtained_thor_total_time = obtained_summary.Total_time.loc["Thor"]
     assert obtained_thor_total_time == pytest.approx(expected_thor_total_time, 0.01)
-
