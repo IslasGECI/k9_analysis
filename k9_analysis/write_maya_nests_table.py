@@ -43,6 +43,5 @@ def write_total_time_and_distance_k9(
     end_date: str = "2022-12-31",
 ):
     k9_data = pd.read_csv(input_path)
-    k9_data_filtered = filter_dates(k9_data, start_date, end_date)
-    summary = make_summary_of_effort_and_distance(k9_data_filtered)
+    summary = make_summary_of_effort_and_distance(k9_data, start_date, end_date)
     summary.to_csv(output_path, index=False)
