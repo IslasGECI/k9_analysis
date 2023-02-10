@@ -1,5 +1,3 @@
-from .group_effort_and_distance import add_duration_in_hours_column
-
 import pandas as pd
 
 
@@ -47,14 +45,5 @@ def make_summary_of_marked_nests_by_year(k9_data: pd.DataFrame):
     return (
         df_with_nests.groupby(["Nombre_k9", "Temporada"], as_index=False)
         .agg(Conteo=("Tipo_de_rastro", "count"))
-        .rename(columns={"Nombre_k9": "Unidad_K9"})
-    )
-
-def make_summary_of_effort_and_distance(effort_df: pd.DataFrame):
-    column_added = add_duration_in_hours_column(effort_df)
-    return (
-        column_added.groupby(["Nombre_k9"], as_index=False)
-        .agg(Total_time=("Duration_hr", "sum"))
-        .agg(Total_distance=("Distancia", "sum"))
         .rename(columns={"Nombre_k9": "Unidad_K9"})
     )
