@@ -4,9 +4,6 @@ from time import strptime
 from .count_burrows_detection import filter_dates
 
 
-def get_total_time(effort_data: pd.DataFrame):
-    pass
-
 
 def interval_in_hours(string_time: str):
     time_format = strptime(string_time, "%H:%M:%S")
