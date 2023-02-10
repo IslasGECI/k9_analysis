@@ -4,7 +4,6 @@ from time import strptime
 from .count_burrows_detection import filter_dates
 
 
-
 def interval_in_hours(string_time: str):
     time_format = strptime(string_time, "%H:%M:%S")
     return time_format.tm_hour + time_format.tm_min / 60 + time_format.tm_sec / 3600

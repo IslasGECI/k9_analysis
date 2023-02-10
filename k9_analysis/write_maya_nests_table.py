@@ -1,5 +1,4 @@
 from .count_burrows_detection import (
-    filter_dates,
     make_summary_maya_2022_number_of_nest_marked,
     make_summary_of_marked_nests_by_year,
 )

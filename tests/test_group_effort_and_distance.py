@@ -11,7 +11,6 @@ import pytest
 effort_data = pd.read_csv("tests/data/esfuerzos_k9_gatos_guadalupe_ISO8601.csv")
 
 
-
 def tests_interval_in_hours():
     string_time = "01:36:28"
     obtained = interval_in_hours(string_time)
