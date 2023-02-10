@@ -41,4 +41,15 @@ def tests_make_summary_of_effort_and_distance():
             "Distancia": [5.9, 2, 1, 1, 1.1],
         }
     )
-    make_summary_of_effort_and_distance(effort_df)
+    obtained_summary = make_summary_of_effort_and_distance(effort_df)
+    obtained_k9s = len(obtained_summary.Total_distance)
+    expected_k9s = 2
+    assert obtained_k9s == expected_k9s
+    expected_maya_total_distance = 10
+    obtained_maya_total_distance = obtained_summary.Total_distance.loc["Maya"]
+    assert obtained_maya_total_distance == expected_maya_total_distance
+
+    expected_thor_total_time = 2.435
+    obtained_thor_total_time = obtained_summary.Total_time.loc["Thor"]
+    assert obtained_thor_total_time == pytest.approx(expected_thor_total_time, 0.01)
+
