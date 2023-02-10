@@ -1,6 +1,5 @@
 from k9_analysis import (
     add_duration_in_hours_column,
-    get_total_time,
     interval_in_hours,
     make_summary_of_effort_and_distance,
 )
@@ -11,10 +10,6 @@ import pytest
 
 effort_data = pd.read_csv("tests/data/esfuerzos_k9_gatos_guadalupe_ISO8601.csv")
 
-
-def test_get_total_time():
-    get_total_time(effort_data)
-    assert True
 
 
 def tests_interval_in_hours():
