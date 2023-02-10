@@ -1,7 +1,10 @@
 from .count_burrows_detection import (
+    filter_dates,
     make_summary_maya_2022_number_of_nest_marked,
     make_summary_of_marked_nests_by_year,
 )
+
+from .group_effort_and_distance import make_summary_of_effort_and_distance
 
 import pandas as pd
 import typer
@@ -29,4 +32,16 @@ def write_summary_of_marked_nests_by_year(
 ):
     k9_data = pd.read_csv(input_path)
     summary = make_summary_of_marked_nests_by_year(k9_data)
+    summary.to_csv(output_path, index=False)
+
+@app.command()
+def write_total_time_and_distance_k9(
+    input_path: str = "data/processed/esfuerzos_k9_gatos_guadalupe_ISO8601.csv",
+    output_path: str = "data/processed/total_time_and_distance_k9.csv",
+    start_date: str = "2021-01-01",
+    end_date: str = "2022-12-31"
+):
+    k9_data = pd.read_csv(input_path)
+    k9_data_filtered = filter_dates(k9_data, start_date, end_date)
+    summary = make_summary_of_effort_and_distance(k9_data_filtered)
     summary.to_csv(output_path, index=False)
