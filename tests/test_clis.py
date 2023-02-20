@@ -53,12 +53,17 @@ def tests_app():
     result = runner.invoke(app, ["--help"])
     assert result.exit_code == 0
     assert "Commands:" in result.output
+
     result = runner.invoke(app, ["write-total-time-and-distance-k9", "--help"])
-    assert "default: data/processed/" in result.output
+    assert " data/processed/esfuerzos_k9" in result.output
+    assert "default: data/processed/total_time" in result.output
     assert "default: 2021-01-01" in result.output
+    assert "default: 2022-12-31" in result.output
+
     result = runner.invoke(app, ["write-summary-of-marked-nests-by-year", "--help"])
     assert "default: data/processed/" in result.output
     assert "default: reports/tables/" in result.output
+
     result = runner.invoke(app, ["write-maya-nests-table", "--help"])
     assert "Options" in result.output
     assert "--start-date" in result.output
