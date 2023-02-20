@@ -1,4 +1,9 @@
-from k9_analysis import app, write_maya_nests_table, write_summary_of_marked_nests_by_year
+from k9_analysis import (
+    app,
+    write_maya_nests_table,
+    write_summary_of_marked_nests_by_year,
+    write_total_time_and_distance_k9,
+)
 
 import os
 from typer.testing import CliRunner
@@ -25,6 +30,16 @@ def test_write_summary_of_marked_nests_by_year():
     write_summary_of_marked_nests_by_year(input_path, output_path)
     obtained = pd.read_csv(output_path)
     expected_columns = ["Unidad_K9", "Temporada", "Conteo"]
+    assert (obtained.columns == expected_columns).all()
+    assert_path_exists(output_path)
+
+
+def test_write_total_time_and_distance_k9():
+    input_path = "tests/data/esfuerzos_k9_gatos_guadalupe_ISO8601.csv"
+    output_path = "tests/data/total_time_and_distance_k9.csv"
+    write_total_time_and_distance_k9(input_path, output_path)
+    obtained = pd.read_csv(output_path)
+    expected_columns = ["Nombre_k9", "Total_distance", "Total_time"]
     assert (obtained.columns == expected_columns).all()
     assert_path_exists(output_path)
 

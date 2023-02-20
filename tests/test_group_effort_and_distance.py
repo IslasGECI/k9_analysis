@@ -13,10 +13,11 @@ effort_data = pd.read_csv("tests/data/esfuerzos_k9_gatos_guadalupe_ISO8601.csv")
 
 
 def tests_interval_in_hours():
-    string_time = "01:36:28"
+    string_time = "01:30:36"
     obtained = interval_in_hours(string_time)
-    expected = 1.60777
-    assert obtained == pytest.approx(expected, 0.01)
+    expected = 1.51
+    print(obtained)
+    assert obtained == pytest.approx(expected, 0.000001)
     string_time = "00:00:00"
     obtained = interval_in_hours(string_time)
     expected = 0
@@ -54,7 +55,7 @@ def tests_make_summary_of_effort_and_distance():
     obtained_k9s = len(obtained_summary.Total_distance)
     expected_k9s = 2
     assert obtained_k9s == expected_k9s
-    expected_maya_total_distance = 10
+    expected_maya_total_distance = 7.9
     obtained_maya_total_distance = obtained_summary.Total_distance.loc["Maya"]
     assert obtained_maya_total_distance == expected_maya_total_distance
 

@@ -43,4 +43,4 @@ def write_total_time_and_distance_k9(
 ):
     k9_data = pd.read_csv(input_path)
     summary = make_summary_of_effort_and_distance(k9_data, start_date, end_date)
-    summary.to_csv(output_path, index=False)
+    summary.to_csv(output_path)
