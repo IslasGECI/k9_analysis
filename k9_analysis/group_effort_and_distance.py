@@ -10,9 +10,11 @@ def interval_in_hours(string_time: str):
 
 
 def add_duration_in_hours_column(effort_data: pd.DataFrame):
-    duration_in_hours = effort_data.Duracion.apply(interval_in_hours)
-    effort_data = effort_data.assign(Duration_hr=duration_in_hours)
-    return effort_data
+    effort_data_copy = effort_data.copy()
+    effort_data_copy.loc[:, "Duracion"] = effort_data_copy.Duracion.fillna("00:00:00")
+    duration_in_hours = effort_data_copy.Duracion.apply(interval_in_hours)
+    effort_data_copy = effort_data_copy.assign(Duration_hr=duration_in_hours)
+    return effort_data_copy
 
 
 def make_summary_of_effort_and_distance(

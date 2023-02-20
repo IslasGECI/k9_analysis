@@ -6,6 +6,7 @@ from k9_analysis import (
 
 import pandas as pd
 import pytest
+import numpy as np
 
 
 effort_data = pd.read_csv("tests/data/esfuerzos_k9_gatos_guadalupe_ISO8601.csv")
@@ -15,6 +16,10 @@ def tests_interval_in_hours():
     string_time = "01:36:28"
     obtained = interval_in_hours(string_time)
     expected = 1.60777
+    assert obtained == pytest.approx(expected, 0.01)
+    string_time = "00:00:00"
+    obtained = interval_in_hours(string_time)
+    expected = 0
     assert obtained == pytest.approx(expected, 0.01)
 
 
@@ -28,10 +33,17 @@ def test_add_duration_in_hours_column():
 
 effort_df = pd.DataFrame(
     {
-        "Fecha": ["2021-04-13", "2022-12-01", "2022-12-31", "2023-01-31", "2023-01-31"],
-        "Nombre_k9": ["Maya", "Maya", "Thor", "Maya", "Maya"],
-        "Duracion": ["01:36:28", "03:33:28", "02:26:07", "00:58:24", "00:00:00"],
-        "Distancia": [5.9, 2, 1, 1, 1.1],
+        "Fecha": [
+            "2021-04-13",
+            "2022-12-01",
+            "2022-12-31",
+            "2023-01-31",
+            "2023-01-31",
+            "2020-12-04",
+        ],
+        "Nombre_k9": ["Maya", "Maya", "Thor", "Maya", "Maya", "Thor"],
+        "Duracion": ["01:36:28", "03:33:28", "02:26:07", "00:58:24", "00:00:00", np.nan],
+        "Distancia": [5.9, 2, 1, 1, 1.1, 1],
     }
 )
 
