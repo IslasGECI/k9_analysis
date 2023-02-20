@@ -25,6 +25,7 @@ def make_summary_of_effort_and_distance(
     grouped_dataframe = column_added.groupby("Nombre_k9")[["Distancia", "Duration_hr"]].aggregate(
         "sum"
     )
-    return grouped_dataframe.rename(
+    rename_df = grouped_dataframe.rename(
         columns={"Distancia": "Total_distance", "Duration_hr": "Total_time"}
     )
+    return rename_df.rename_axis("k9_name")
