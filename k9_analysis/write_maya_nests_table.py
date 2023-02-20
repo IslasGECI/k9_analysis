@@ -2,9 +2,10 @@ from .count_burrows_detection import (
     make_summary_maya_2022_number_of_nest_marked,
     make_summary_of_marked_nests_by_year,
 )
-
+from .ReportingEffort import ReportingEffort
 from .group_effort_and_distance import make_summary_of_effort_and_distance
 
+import json
 import pandas as pd
 import typer
 
@@ -44,3 +45,21 @@ def write_total_time_and_distance_k9(
     k9_data = pd.read_csv(input_path)
     summary = make_summary_of_effort_and_distance(k9_data, start_date, end_date)
     summary.to_csv(output_path)
+
+
+@app.command()
+def write_total_time_and_distance_maya(
+    input_path: str = "data/processed/total_time_and_distance_k9.csv",
+    output_path: str = "reports/non-tabular/maya_time_and_distance.json",
+):
+    input_dict = {"k9_effort_path": input_path}
+
+    report = ReportingEffort(input_dict)
+    report.read_data()
+    summary = {
+        "k9_name": "Maya",
+        "Total_distance": report.get_maya_effort_distance(),
+        "Total_time": report.get_maya_effort_time(),
+    }
+    with open(output_path, "w") as jsonfile:
+        json.dump(summary, jsonfile)
