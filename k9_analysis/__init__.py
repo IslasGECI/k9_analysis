@@ -2,6 +2,6 @@
 
 __version__ = "0.6.0"
 from .count_burrows_detection import *  # noqa
-from .write_maya_nests_table import *  # noqa
+from .cli import *  # noqa
 from .ReportingEffort import *  # noqa
 from .group_effort_and_distance import *  # noqa
