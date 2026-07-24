@@ -16,3 +16,7 @@ requires = [
 requires-python=">=3.9"
 [tool.flit.scripts]
 k9-analysis = "k9_analysis.cli:app"
+
+[tool.mutmut]
+paths_to_mutate = [ "k9_analysis/" ]
+tests_dir = [ "tests/" ]
