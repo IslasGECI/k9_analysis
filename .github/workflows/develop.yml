@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Copia repositorio
-      uses: actions/checkout@v2
+      uses: actions/checkout@main
     - name: Construye imagen
       run: docker build --tag islasgeci/k9_analysis:latest --tag islasgeci/k9_analysis:${GITHUB_SHA:0:4} .
     - name: Verifica el formato
@@ -17,6 +17,12 @@ jobs:
       run: docker run islasgeci/k9_analysis:latest make coverage
     - name: Evalúa resistencia a mutaciones
       run: docker run islasgeci/k9_analysis:latest make mutants
+   - name: Create/Update tag
+      uses: rickstaa/action-create-tag@main
+      with:
+        tag: "latest"
+        message: "Latest release"
+        force_push_tag: true
     - name: Docker log-in
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
@@ -30,9 +36,9 @@ jobs:
     name: Build and publish Python 🐍 distributions 📦 to PyPI
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Set up Python 3.9
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@main
       with:
         python-version: 3.9
     - name: Install pypa/build
@@ -53,4 +59,4 @@ jobs:
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         password: ${{ secrets.PYPI_TOKEN }}
-        skip_existing: true
+        skip-existing: true
