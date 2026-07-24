@@ -10,7 +10,7 @@ class ReportingEffort:
         self.effort_k9 = pd.read_csv(self.k9_path)
 
     def get_maya_effort_distance(self):
-        return int(self.effort_k9[self.effort_k9["k9_name"] == "Maya"]["Total_distance"])
+        return int(self.effort_k9.loc[self.effort_k9["k9_name"] == "Maya", "Total_distance"].item())
 
     def get_maya_effort_time(self):
-        return int(self.effort_k9[self.effort_k9["k9_name"] == "Maya"]["Total_time"])
+        return int(self.effort_k9.loc[self.effort_k9["k9_name"] == "Maya", "Total_time"].item())
