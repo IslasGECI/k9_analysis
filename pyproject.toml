@@ -10,6 +10,11 @@ description-file = "README.md"
 home-page = "https://github.com/IslasGECI/k9_analysis"
 module = "k9_analysis"
 requires = [
-		"pandas"
+		"json",
+		"pandas",
+		"time",
+		"typer[all]",
 ]
 requires-python=">=3.9"
+[tool.flit.scripts]
+k9-analysis = "k9_analysis.cli:app"
