@@ -8,8 +8,9 @@ def make_summary_maya_2022_number_of_nest_marked(
         k9_data, start_date, end_date
     )
     return (
-        nest_marked_by_maya_in_2022.groupby("Nombre_k9", as_index=False)
+        nest_marked_by_maya_in_2022.groupby("Nombre_k9")
         .agg(Conteo=("Tipo_de_rastro", "count"))
+        .reset_index()
         .rename(columns={"Nombre_k9": "Unidad_K9"})
     )
 
