@@ -17,7 +17,7 @@ jobs:
       run: docker run islasgeci/k9_analysis:latest make coverage
     - name: Evalúa resistencia a mutaciones
       run: docker run islasgeci/k9_analysis:latest make mutants
-   - name: Create/Update tag
+    - name: Create/Update tag
       uses: rickstaa/action-create-tag@main
       with:
         tag: "latest"
