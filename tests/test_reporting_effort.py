@@ -1,6 +1,5 @@
 from k9_analysis import ReportingEffort
 
-
 data_paths = dict(
     k9_effort_path="tests/data/input_k9_effort_data.csv",
 )

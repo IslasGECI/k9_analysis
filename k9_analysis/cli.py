@@ -9,7 +9,6 @@ import json
 import pandas as pd
 import typer
 
-
 app = typer.Typer()
 
 

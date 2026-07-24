@@ -8,7 +8,6 @@ import pandas as pd
 import pytest
 import numpy as np
 
-
 effort_data = pd.read_csv("tests/data/esfuerzos_k9_gatos_guadalupe_ISO8601.csv")
 
 
